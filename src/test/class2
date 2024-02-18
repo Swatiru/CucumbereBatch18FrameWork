@@ -1,0 +1,115 @@
+Class 2-
+
+recap -
+Cucumber allows us to write scenarios in gherkin language
+as a maven project, we created the framework skeleton
+
+main
+test - here we write code to test the application
+java - for all the technical parts
+resources - for all the non tech parts
+
+feature file - in this, we write scenarios
+steps package - to keep all step defs
+
+utils  package is for all the utility classes
+
+We need to control the flow of execution
+to execute all the test cases
+to execute some of the test cases
+to execute one of the test cases
+
+Class 3 -
+recap -
+
+runner class
+
+we need junit to work with cucumber
+cucumber options-
+features - the path of features directory to execute all the TC's in one go
+glue - the path of the steps package, runner class will find all the step defs here
+dry run - if we set it to true, it will stop actual execution and scans all the steps
+if any step is missing, it will give me step definition for that step
+if we set it to false, then again execution will st6art
+tags - when we need to execute specific group of test cases or any specific TC
+we use tags.
+There is no limitation of using tags in scenarios
+
+if I want to execute scenarios based on 2 conditions
+we need config.prop to add all the configuration parameters
+
+class 4 -
+
+recap -
+
+runner class -
+cucumber options -
+features -
+glue -
+dry run -
+tags -
+plugin - pretty  - it prints all the step definitions in console
+
+common methods - we have all the common methods here
+
+hooks - we will write the pre-condition and post-condition here
+hooks class will always be in steps package
+@before tag for pre condition
+@after tag for post condition
+
+background - in background, we write all the steps in feature file
+which is common in all the scenarios.
+once the flow is broken, we cannot write steps after that in background
+doesn't matter how many steps are common after flow is broken, we cannot write
+them in background because flow has already broke
+
+background is limited to one feature file
+it means for every feature file background will be different
+
+hooks vs background
+hooks are applicable for all feature files
+background is applicable for one feature file
+ flow of execution -
+ hooks will execute first
+ then background will execute
+ then scenario will execute
+
+data driven testing
+DDT -
+when your one scenario is executing against multiple sets of data
+our framework is hybrid - it supports BDD and DDT
+
+Class 5 -
+recap -
+
+we can pass data from feature file in terms of parameters
+"data value", it will be considered as a parameter
+
+we can achieve data driven testing using feature file
+we use examples table with scenario outline to pass multiple sets of data
+
+hooks - based on number of data set
+background - based on number of data set
+scenario - based on number of data set
+
+Assertions -
+in cucumber we use, junit assertions.
+
+true - checks the existence of the element/text/field
+equals - checks the exact value of the element
+
+verification - when you check the details on SRS
+validation - when you write code and check in the application
+
+
+POM - page object model design pattern.
+
+as per this design pattern, we have a class for each page available in website
+we will keep locators for this page in the respective class
+login page locators will be in loginpage class and so on
+we call these locators as object repositories
+
+first, create page class and add object repository
+then create the constructor and call page factory
+then create the object of the class in page initializer class
+then comment out previous web element and call objects  with web elements
